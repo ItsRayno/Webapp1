@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+</head>
+<style>
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    td,th {
+        border: 1px solid #cccccc;
+        padding: 8px;
+    }
+    th {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    tr:hover {
+        background-color: #555555;
+        color: white;
+    }
+
+
+</style>
+
+<script>
+
+    if('geolocation' in navigator){
+        console.log('geolocation available');
+    }else{
+        console.log('geolocation not available');
+    }
+
+    let serieData = [
+        { seriename:'Kris', rank: 3 },
+        { seriename:'Frank', rank: 9 },
+        { seriename:'Mister', rank: 7 },
+        { seriename:'Blyat', rank: 5 }
+    ];
+
+    window.onload = () => {
+        loadTableData(serieData);
+    };
+
+    function loadTableData(serieData) {
+        const tablebody = document.getElementById('tableData');
+        let dataHtml = '';
+
+        for(let serie of serieData){
+
+            dataHtml +=`<tr><td>${serie.seriename}</td><td>${serie.rank}</td></tr>`;
+        }
+
+        console.log(dataHtml);
+        tablebody.innerHTML = dataHtml;
+
+    }
+</script>
+
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Serie name</th>
+        <th>Rank</th>
+    </tr>
+    </thead>
+
+    <tbody id="tableData">
+
+    </tbody>
+</table>
+
+</body>
+
+</html>
